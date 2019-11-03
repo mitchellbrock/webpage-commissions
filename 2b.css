@@ -1,0 +1,1034 @@
+/*Body Template*/
+
+html {
+    cursor: url('https://i.imgur.com/i0bm1fb.png'), auto;
+}
+
+body {
+    background-color: #d1cdb7;
+    background-image: -webkit-linear-gradient(left, #ccc8b1 1px, transparent 1px), -webkit-linear-gradient(top, #ccc8b1 1px, transparent 1px);
+    background-image: -moz-linear-gradient(left, #ccc8b1 1px, transparent 1px), -moz-linear-gradient(top, #ccc8b1 1px, transparent 1px);
+    background-image: -o-linear-gradient(left, #ccc8b1 1px, transparent 1px), -o-linear-gradient(top, #ccc8b1 1px, transparent 1px);
+    background-image: -ms-linear-gradient(left, #ccc8b1 1px, transparent 1px), -ms-linear-gradient(top, #ccc8b1 1px, transparent 1px);
+    background-image: linear-gradient(to right, #ccc8b1 1px, transparent 1px), linear-gradient(to bottom, #ccc8b1 1px, transparent 1px);
+    background-size: 0.3rem 0.3rem;
+    font-family: helvetica, sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #454138;
+    border: 0px none #ffffff;
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+    background: #454138;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    border: 0px none transparent;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-track:hover,
+::-webkit-scrollbar-track:active,
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/*End Body Template*/
+
+/*Loading Screen*/
+#loading {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    height: 150px;
+    width: 400px;
+    background-color: #DCD8C0;
+    font-family: Helvetica;
+    color: #454138;
+    text-align: left;
+    font-size: smaller;
+    letter-spacing: 2px;
+    text-indent: 10px;
+    visibility: visible;
+    animation: loadingvisibility 0.5s ease 10s normal forwards;
+    transform: scaleY(1) scaleX(1);
+}
+
+@keyframes loadingvisibility {
+    0% {
+        visibility: visible;
+        transform: scaleY(1);
+    }
+
+    100% {
+        visibility: hidden;
+        transform: scaleY(0);
+    }
+}
+
+#loadingblock {
+    position: absolute;
+    height: 150px;
+    width: 400px;
+    background-color: transparent;
+    z-index: 2;
+    animation: loadingblockappear 1s ease 9s normal forwards;
+}
+
+@keyframes loadingblockappear {
+    0% {
+        background-color: transparent;
+    }
+
+    100% {
+        background-color: #DCD8C0;
+    }
+}
+
+#loadingtext {
+    margin-bottom: 5px;
+    opacity: 0;
+    height: 15px;
+    width: 100%;
+    float: left;
+    position: relative;
+    z-index: 1;
+}
+
+#loadingtext:nth-child(1) {
+    animation: loadingtextblink 1s ease 0s 1 normal forwards;
+    margin-top: 5px;
+}
+
+#loadingtext:nth-child(2) {
+    animation: loadingtextblink 1s ease 1s 1 normal forwards;
+    text-indent: 20px;
+}
+
+#loadingtext:nth-child(3) {
+    animation: loadingtextblink 1s ease 2s 1 normal forwards;
+    text-indent: 20px;
+}
+
+#loadingtext:nth-child(4) {
+    animation: loadingtextblink 1s ease 3s 1 normal forwards;
+    text-indent: 20px;
+}
+
+#loadingtext:nth-child(5) {
+    animation: loadingtextblink 1s ease 4s 1 normal forwards;
+    text-indent: 20px;
+}
+
+#loadingtext:nth-child(6) {
+    animation: loadingtextblink 1s ease 5s 1 normal forwards;
+    text-indent: 10px;
+}
+
+#loadingtext:nth-child(7) {
+    animation: loadingtextblink 1s ease 6s 1 normal forwards;
+    text-indent: 20px;
+}
+
+@keyframes loadingtextblink {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.25;
+    }
+
+    75% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#loadingtext span {
+    animation: textblink .75s step-end infinite;
+    opacity: 0;
+}
+
+@keyframes textblink {
+    50% {
+        opacity: 1;
+    }
+}
+
+/*End Loading Screen*/
+
+
+/*Wrapper*/
+#wrapper {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    height: 300px;
+    width: 800px;
+    background-color: #DCD8C0;
+    padding: 5px;
+    animation: wrapperappear 1s ease 11s 1 normal forwards;
+    /*Change me to get rid of loading screen*/
+    opacity: 0;
+    cursor: inherit;
+}
+
+@keyframes wrapperappear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/*End Wrapper*/
+
+/*Status Bar Holder*/
+#statusbarholder {
+    margin: auto;
+    top: -55px;
+    left: 0px;
+    height: 50px;
+    width: 265px;
+    background-color: #DCD8C0;
+    position: absolute;
+}
+
+
+#statusbars {
+    margin: auto;
+    top: 5px;
+    left: 5px;
+    height: 45px;
+    width: 255px;
+    background-color: #DCD8C0;
+    position: absolute;
+    animation: statusappear 2s ease 12s 1 normal forwards;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes statusappear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#baseline {
+    bottom: 18px;
+    height: 2px;
+    border-style: solid;
+    border-width: 4px 0px 2.5px 0px;
+    border-color: rgba(95, 95, 95, 1) transparent rgba(143, 143, 143, 1) transparent;
+    width: 0%;
+    left: 13px;
+    position: absolute;
+    background-color: transparent;
+    animation: baselinefill 1s ease 15s 1 normal forwards;
+}
+
+@keyframes baselinefill {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 92%;
+    }
+}
+
+#hpbar {
+    position: absolute;
+    top: 7px;
+    left: 13px;
+    height: 10px;
+    width: 0%;
+    background-color: #BAB5A1;
+    animation: hpfill 1s ease 14s 1 normal forwards;
+}
+
+@keyframes hpfill {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 92%;
+    }
+}
+
+#leftcircle {
+    position: absolute;
+    left: 1px;
+    bottom: 15px;
+    height: 6px;
+    width: 6px;
+    border-style: solid;
+    border-color: #454138;
+    border-radius: 10px;
+    border-width: 2px;
+    animation: dotblink 1s ease 11s 5 normal forwards;
+}
+
+@keyframes dotblink {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#dot {
+    position: absolute;
+    left: 12px;
+    top: 0px;
+    height: 4px;
+    width: 4px;
+    background-color: rgba(192, 192, 194, 1);
+    border-radius: 5px;
+}
+
+#dot:nth-child(2) {
+    left: 96%;
+}
+
+#dot:nth-child(3) {
+    left: 99%;
+    top: 55%;
+}
+
+#level {
+    position: absolute;
+    left: 13px;
+    bottom: 3px;
+    height: 15px;
+    background-color: transparent;
+    font-family: helvetica, sans-serif;
+    color: #454138;
+    letter-spacing: 2px;
+    font-size: 1em;
+    animation: levelblink 2s ease 16s 1 normal forwards;
+    opacity: 0;
+}
+
+@keyframes levelblink {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    75% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/*End Status Bar Holder*/
+
+/*Navigation*/
+#navigation {
+    position: absolute;
+    top: 5px;
+    width: 800px;
+    height: 40px;
+    background-color: transparent;
+    cursor: inherit;
+}
+
+.buttonstyle {
+    float: left;
+    position: relative;
+    width: 187.5px;
+    height: 40px;
+    margin-left: 10px;
+    background-color: #BAB5A1;
+    background-image: linear-gradient(to left, transparent, transparent 50%, #454138 0%, #454138);
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    text-align: center;
+    line-height: 40px;
+    color: #454138;
+    transition: all 0.25s ease-in-out;
+    font-family: helvetica, sans-serif;
+    cursor: inherit;
+}
+
+.buttonstyle::after {
+    height: 1px;
+    width: 187.5px;
+    left: 0px;
+    top: -1px;
+    content: '';
+    background-color: #454138;
+    position: absolute;
+    transition: all 0.25s ease-in-out;
+    opacity: 0;
+}
+
+.buttonstyle::before {
+    height: 1px;
+    width: 187.5px;
+    left: 0px;
+    bottom: -1px;
+    content: '';
+    background-color: #454138;
+    position: absolute;
+    transition: all 0.25s ease-in-out;
+    opacity: 0;
+}
+
+.buttonstyle:hover {
+    color: #dcd8c0;
+    background-position: 0 0;
+}
+
+.buttonstyle:hover::after {
+    opacity: 1;
+    top: -4px;
+}
+
+.buttonstyle:hover::before {
+    opacity: 1;
+    bottom: -4px;
+}
+
+a.buttons:link {
+    display: block;
+    color: #454138;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    transition: all 0.25s ease-in-out;
+    cursor: inherit;
+}
+
+a.buttons:visited {
+    color: #454138;
+}
+
+a.buttons:hover,
+a.buttons:active {
+    color: #dcd8c0;
+}
+
+a.buttons span {
+    transition: all ease-in-out;
+}
+
+a.buttons:hover span {
+    display: none;
+}
+
+.homebutton a.buttons:hover:before {
+    content: "ホーム";
+}
+
+.statusbutton a.buttons:hover:before {
+    content: "格";
+}
+
+.intelbutton a.buttons:hover:before {
+    content: "インテル";
+}
+
+.systembutton a.buttons:hover:before {
+    content: "システム";
+}
+
+.homebutton {
+    height: 40px;
+    width: 187.5px;
+}
+
+.statusbutton {
+    height: 40px;
+    width: 187.5px;
+}
+
+.intelbutton {
+    height: 40px;
+    width: 187.5px;
+}
+
+.systembutton {
+    height: 40px;
+    width: 187.5px;
+}
+
+/*End Navigation*/
+
+
+/*Box of Stuff*/
+
+#boxholder {
+    position: absolute;
+    bottom: 5px;
+    background-color: #BAB5A1;
+    height: 255px;
+    width: 800px;
+}
+
+#home {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: 245px;
+    width: 790px;
+    opacity: 1;
+    transition: all 0.25s ease-in-out;
+    background-image: url('https://i.imgur.com/91zYNcf.png');
+    background-repeat: no-repeat;
+    background-size: 780px 235px;
+}
+
+#status {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: transparent;
+    height: 245px;
+    width: 790px;
+    opacity: 0;
+    transition: all 0.25s ease-in-out;
+}
+
+#intel {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #BAB5A1;
+    height: 245px;
+    width: 790px;
+    color: #454138;
+    font-family: inherit;
+    opacity: 0;
+    transition: all 0.25s ease-in-out;
+}
+
+#system {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: #BAB5A1;
+    height: 245px;
+    width: 790px;
+    color: #454138;
+    font-family: inherit;
+    opacity: 0;
+    transition: all 0.25s ease-in-out;
+}
+
+/*End Box of Stuff*/
+
+/*Status Table*/
+
+table.status {
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    color: #454138;
+    font-family: inherit;
+    border-collapse: separate;
+    border-spacing: 4px 0px;
+}
+
+table.status tr {
+    background-color: transparent;
+}
+
+table.status th {
+    height: 35px;
+    padding: 0px;
+    color: rgba(200, 197, 181, 1);
+    font-weight: initial;
+    text-align: left;
+    text-indent: 15px;
+    background-color: rgba(72, 68, 57, 1);
+    background-image: linear-gradient(to right, #454136 0.5px, transparent 0.5px), linear-gradient(to bottom, #454136 0.5px, transparent 0.5px);
+    background-size: 0.3rem 0.3rem;
+    font-size: 1.4em;
+    letter-spacing: 0.03rem;
+}
+
+table.status td {
+    background-color: #d1cdb7;
+    background-image: linear-gradient(to right, #ccc8b1 0.5px, transparent 0.5px), linear-gradient(to bottom, #ccc8b1 0.5px, transparent 0.5px);
+    background-size: 0.3rem 0.3rem;
+    font-weight: normal;
+    font-size: 1.1em;
+    letter-spacing: 2px;
+}
+
+.alignleft {
+    float: left;
+    margin-top: 10px;
+    margin-left: 5px;
+    line-height: 1.2em;
+}
+
+.alignright {
+    float: right;
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 5px;
+    line-height: 1.2em;
+}
+
+/*End Status Table*/
+
+/*Intel*/
+
+a.intelbuttonclick:visited {
+    color: #454138;
+}
+
+a.intelbuttonclick:hover,
+a.intelbuttonclick:active {
+    color: #dcd8c0;
+    cursor: inherit;
+
+}
+
+#inteldatahistory:target,
+#inventorydatabase:target,
+#imagedatabase:target,
+#knowledgedatabase:target {
+    transition: all 0.25s ease-in-out;
+    opacity: 1;
+    z-index: 2;
+}
+
+#intellistbuttons {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 40%;
+    background-color: #d1cdb7;
+    background-image: -webkit-linear-gradient(left, #ccc8b1 1px, transparent 1px), -webkit-linear-gradient(top, #ccc8b1 1px, transparent 1px);
+    background-image: -moz-linear-gradient(left, #ccc8b1 1px, transparent 1px), -moz-linear-gradient(top, #ccc8b1 1px, transparent 1px);
+    background-image: -o-linear-gradient(left, #ccc8b1 1px, transparent 1px), -o-linear-gradient(top, #ccc8b1 1px, transparent 1px);
+    background-image: -ms-linear-gradient(left, #ccc8b1 1px, transparent 1px), -ms-linear-gradient(top, #ccc8b1 1px, transparent 1px);
+    background-image: linear-gradient(to right, #ccc8b1 0.5px, transparent 0.5px), linear-gradient(to bottom, #ccc8b1 0.5px, transparent 0.5px);
+    background-size: 0.3rem 0.3rem;
+}
+
+#intellistbuttons h1 {
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    text-shadow: 0.3rem 0.3rem 0 #bab5a1;
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 1.5em;
+}
+
+#intelbutton {
+    float: left;
+    position: relative;
+    width: 275px;
+    height: 25px;
+    margin-left: 10px;
+    margin-top: 7.5px;
+    background-color: #BAB5A1;
+    background-image: linear-gradient(to left, transparent, transparent 50%, #454138 0%, #454138);
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    line-height: 25px;
+    color: #454138;
+    transition: all 0.25s ease-in-out;
+    font-family: helvetica, sans-serif;
+}
+
+#intelbutton::after {
+    height: 1px;
+    width: 275px;
+    left: 0px;
+    top: -1px;
+    content: '';
+    background-color: #454138;
+    position: absolute;
+    transition: all 0.25s ease-in-out;
+    opacity: 0;
+}
+
+#intelbutton::before {
+    height: 1px;
+    width: 275px;
+    left: 0px;
+    bottom: -1px;
+    content: '';
+    background-color: #454138;
+    position: absolute;
+    transition: all 0.25s ease-in-out;
+    opacity: 0;
+}
+
+#intelbutton:hover {
+    color: #dcd8c0;
+    background-position: 0 0;
+}
+
+#intelbutton:hover::after {
+    opacity: 1;
+    top: -4px;
+}
+
+#intelbutton:hover::before {
+    opacity: 1;
+    bottom: -4px;
+}
+
+#intelbutton:nth-of-type(1) {
+    margin-top: -5px;
+}
+
+#block {
+    height: 15px;
+    width: 15px;
+    background-color: #454138;
+    margin-top: 5px;
+    margin-left: 5px;
+    transition: all 0.25s ease-in-out;
+}
+
+#intelbutton:hover #block {
+    background-color: #dcd8c0;
+}
+
+.dalignleft {
+    float: left;
+    margin-top: -16px;
+    margin-left: 25px;
+    line-height: 1.2em;
+    letter-spacing: 2px;
+}
+
+.dalignright {
+    float: right;
+    text-align: right;
+    margin-top: -16px;
+    margin-right: 5px;
+    line-height: 1.2em;
+    letter-spacing: 2px;
+}
+
+#intelbox {
+    position: relative;
+    float: left;
+    margin-top: 0px;
+    height: 245px;
+    width: 465px;
+    background-color: #d1cdb7;
+    background-image: -webkit-linear-gradient(left, #ccc8b1 1px, transparent 1px), -webkit-linear-gradient(top, #ccc8b1 1px, transparent 1px);
+    background-image: -moz-linear-gradient(left, #ccc8b1 1px, transparent 1px), -moz-linear-gradient(top, #ccc8b1 1px, transparent 1px);
+    background-image: -o-linear-gradient(left, #ccc8b1 1px, transparent 1px), -o-linear-gradient(top, #ccc8b1 1px, transparent 1px);
+    background-image: -ms-linear-gradient(left, #ccc8b1 1px, transparent 1px), -ms-linear-gradient(top, #ccc8b1 1px, transparent 1px);
+    background-image: linear-gradient(to right, #ccc8b1 0.5px, transparent 0.5px), linear-gradient(to bottom, #ccc8b1 0.5px, transparent 0.5px);
+    background-size: 0.3rem 0.3rem;
+    margin-left: 5px;
+    opacity: 1;
+}
+
+.intelboxstyle {
+    position: absolute;
+    height: 235px;
+    margin-top: 5px;
+    margin-left: 5px;
+    padding: 0px 5px;
+    width: 445px;
+    background-color: #BAB5A1;
+    overflow-y: auto;
+}
+
+#inteldatahistory {
+    color: #454138;
+    z-index: 1;
+    opacity: 0;
+}
+
+#block1 {
+    display: inline-block;
+    position: relative;
+    height: 10px;
+    width: 10px;
+    background-color: #454138;
+    margin-top: 5px;
+    margin-left: 5px;
+    z-index: 1;
+    animation: blockoneblink 1.5s ease 0s infinite normal forwards;
+}
+
+@keyframes blockoneblink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#datahistoryparagraph {
+    display: block;
+    margin-top: 5px;
+}
+
+#inventorydatabase {
+    display: block;
+    z-index: 1;
+    opacity: 0;
+}
+
+#knowledgedatabase {
+    display: block;
+    z-index: 1;
+    margin-top: 5px;
+    line-height: 25px;
+    opacity: 0;
+}
+
+#imagedatabase {
+    display: block;
+    z-index: 1;
+    opacity: 0;
+}
+
+#itemtext {
+    position: relative;
+    width: 445px;
+    margin-top: 5px;
+    float: left;
+    display: inline-block;
+}
+
+#item {
+    position: relative;
+    margin-top: 5px;
+    width: 445px;
+    background-color: transparent;
+    z-index: 1;
+    overflow: auto;
+    opacity: 1;
+}
+
+table.item {
+    width: 445px;
+}
+
+table.item th {
+    text-align: left;
+}
+
+.itemtitle {
+    background-color: #454138;
+    width: 445px;
+    padding: 5px 0px 5px 0px;
+    text-indent: 3mm;
+    color: #d1cdb7;
+    letter-spacing: 5px;
+}
+
+.itemimage {
+    margin-top: 5px;
+    display: block;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #BAB5A1;
+}
+
+img.test {
+    margin: 5px auto 5px auto;
+    display: block;
+    width: 390px;
+    height: 150px;
+    background-color: #BAB5A1;
+}
+
+.itembody {
+    display: block;
+    background-color: #d1cdb7;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+hr.linestyle {
+    border-color: #BAB5A1;
+    border-width: 1px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*End Intel*/
+
+
+/*System*/
+
+/*Status Table*/
+
+table.systemtable {
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    color: #454138;
+    font-family: inherit;
+    border-collapse: separate;
+    border-spacing: 4px 0px;
+}
+
+table.systemtable tr {
+    background-color: transparent;
+}
+
+table.systemtable th {
+    height: 35px;
+    padding: 0px;
+    color: rgba(200, 197, 181, 1);
+    font-weight: initial;
+    text-align: left;
+    text-indent: 15px;
+    background-color: rgba(72, 68, 57, 1);
+    background-image: linear-gradient(to right, #454136 0.5px, transparent 0.5px), linear-gradient(to bottom, #454136 0.5px, transparent 0.5px);
+    background-size: 0.3rem 0.3rem;
+    font-size: 1.4em;
+    letter-spacing: 0.03rem;
+}
+
+table.systemtable td {
+    background-color: #d1cdb7;
+    background-image: linear-gradient(to right, #ccc8b1 0.5px, transparent 0.5px), linear-gradient(to bottom, #ccc8b1 0.5px, transparent 0.5px);
+    background-size: 0.3rem 0.3rem;
+    font-weight: normal;
+    font-size: 1.1em;
+    letter-spacing: 2px;
+}
+
+.alignleft {
+    float: left;
+    margin-top: 10px;
+    margin-left: 5px;
+    line-height: 1.2em;
+}
+
+.alignright {
+    float: right;
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 5px;
+    line-height: 1.2em;
+}
+
+
+a.linkstyle:hover {
+    animation: blinking 500ms linear infinite alternate;
+}
+
+a.linkstyle:link,
+a.linkstyle:visited {
+    color: #454138;
+}
+
+
+/*End Status Table*/
+
+/*Image Database*/
+
+.typeflag {
+    height: 100%;
+    width: 100%;
+    background-color: red;
+}
+
+.highlight {
+    color: red;
+    cursor: inherit;
+}
+
+.highlight:hover {
+    animation: blinking 500ms linear infinite alternate;
+}
+
+@keyframes blinking {
+    0% {
+        color: red
+    }
+
+    50% {
+        color: transparent
+    }
+
+    100% {
+        color: red
+    }
+}
+
+#typewriter {
+    margin-top: 5px;
+    margin-bottom: 0px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+
+    &:after {
+        content: "|";
+        animation: blink3 500ms linear infinite alternate;
+    }
+}
+
+@keyframes blink3 {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/*End Image Database*/

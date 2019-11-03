@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ヨルハ2号B型</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="2b.css">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loading">
+        <div id="loadingtext">Boot up sequence initiated . . .</div>
+        <div id="loadingtext">Fetching data from system . . .</div>
+        <div id="loadingtext">Allocating storage space to B: Drive . . .</div>
+        <div id="loadingtext">Uploading data . . .</div>
+        <div id="loadingtext">Upload complete</div>
+        <div id="loadingtext">Initiate data menu . . .</div>
+        <div id="loadingtext">Data menu load completed <span>_</span></div>
+        <div id="loadingblock"></div>
+    </div>
+    <!-- End On Loading Screen -->
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Status Bars -->
+        <div id="statusbarholder">
+            <div id="statusbars">
+                <div id="dot"></div>
+                <div id="dot"></div>
+                <div id="dot"></div>
+                <div id="hpbar"></div>
+                <div id="leftcircle"></div>
+                <div id="baseline"></div>
+                <div id="level">Lv: 34</div>
+            </div>
+        </div>
+        <!-- End Status Bars -->
+
+        <!-- Start Navigation -->
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() {
+                var homebutton = document.querySelector('.homebutton');
+                var statusbutton = document.querySelector('.statusbutton');
+                var intelbutton = document.querySelector('.intelbutton');
+                var systembutton = document.querySelector('.systembutton');
+                var imagebutton = document.querySelector('.typeflag');
+
+                homebutton.addEventListener("click", function() {
+
+                    document.getElementById("status").style.opacity = 0;
+                    document.getElementById("intel").style.opacity = 0;
+                    document.getElementById("system").style.opacity = 0;
+                    document.getElementById("status").style.zIndex = 0;
+                    document.getElementById("intel").style.zIndex = 0;
+                    document.getElementById("system").style.zIndex = 0;
+
+                    document.getElementById("home").style.opacity = 1;
+                    document.getElementById("home").style.zIndex = 2;
+                }), false;
+
+                statusbutton.addEventListener("click", function() {
+                    document.getElementById("home").style.opacity = 0;
+                    document.getElementById("intel").style.opacity = 0;
+                    document.getElementById("system").style.opacity = 0;
+                    document.getElementById("home").style.zIndex = 0;
+                    document.getElementById("intel").style.zIndex = 0;
+                    document.getElementById("system").style.zIndex = 0;
+                    document.getElementById("status").style.opacity = 1;
+                    document.getElementById("status").style.zIndex = 2;
+                }), false;
+
+                intelbutton.addEventListener("click", function() {
+                    document.getElementById("home").style.opacity = 0;
+                    document.getElementById("status").style.opacity = 0;
+                    document.getElementById("system").style.opacity = 0;
+                    document.getElementById("home").style.zIndex = 0;
+                    document.getElementById("status").style.zIndex = 0;
+                    document.getElementById("system").style.zIndex = 0;
+
+                    document.getElementById("intel").style.opacity = 1;
+                    document.getElementById("intel").style.zIndex = 2;
+                }), false;
+
+                systembutton.addEventListener("click", function() {
+                    document.getElementById("home").style.opacity = 0;
+                    document.getElementById("status").style.opacity = 0;
+                    document.getElementById("intel").style.opacity = 0;
+                    document.getElementById("home").style.zIndex = 0;
+                    document.getElementById("status").style.zIndex = 0;
+                    document.getElementById("intel").style.zIndex = 0;
+
+                    document.getElementById("system").style.opacity = 1;
+                    document.getElementById("system").style.zIndex = 2;
+                }), false;
+
+                imagebutton.addEventListener("click", function() {
+
+                    function setupTypewriter(t) {
+                        var HTML = t.innerHTML;
+
+                        t.innerHTML = "";
+
+                        var cursorPosition = 0,
+                            tag = "",
+                            writingTag = false,
+                            tagOpen = false,
+                            typeSpeed = 0.01,
+                            tempTypeSpeed = 0;
+
+                        var type = function() {
+
+                            if (writingTag === true) {
+                                tag += HTML[cursorPosition];
+                            }
+
+                            if (HTML[cursorPosition] === "<") {
+                                tempTypeSpeed = 0;
+                                if (tagOpen) {
+                                    tagOpen = false;
+                                    writingTag = true;
+                                } else {
+                                    tag = "";
+                                    tagOpen = true;
+                                    writingTag = true;
+                                    tag += HTML[cursorPosition];
+                                }
+                            }
+                            if (!writingTag && tagOpen) {
+                                tag.innerHTML += HTML[cursorPosition];
+                            }
+                            if (!writingTag && !tagOpen) {
+                                if (HTML[cursorPosition] === " ") {
+                                    tempTypeSpeed = 0;
+                                } else {
+                                    tempTypeSpeed = (Math.random() * typeSpeed) + 0;
+                                }
+                                t.innerHTML += HTML[cursorPosition];
+                            }
+                            if (writingTag === true && HTML[cursorPosition] === ">") {
+                                tempTypeSpeed = (Math.random() * typeSpeed) + 20;
+                                writingTag = false;
+                                if (tagOpen) {
+                                    var newSpan = document.createElement("span");
+                                    t.appendChild(newSpan);
+                                    newSpan.innerHTML = tag;
+                                    tag = newSpan.firstChild;
+                                }
+                            }
+
+                            cursorPosition += 1;
+                            if (cursorPosition < HTML.length - 1) {
+                                setTimeout(type, tempTypeSpeed);
+                            }
+
+                        };
+
+                        return {
+                            type: type
+                        };
+                    }
+
+
+
+                    var typer = document.getElementById('typewriter');
+
+                    typewriter = setupTypewriter(typewriter);
+
+                    typewriter.type();
+                }), false;
+
+            }), false;
+
+        </script>
+        <div id="navigation">
+            <div class="buttonstyle homebutton"><a class="buttons" href="#home">
+                    <span>HOME</span></a></div>
+            <div class="buttonstyle statusbutton"><a class="buttons" href="#status"><span>STATUS</span></a></div>
+            <div class="buttonstyle intelbutton"><a class="buttons" href="#intel"><span>INTEL</span></a></div>
+            <div class="buttonstyle systembutton"><a class="buttons" href="#system"><span>SYSTEM</span></a></div>
+        </div>
+        <!-- End Navigation -->
+
+        <div id="boxholder">
+            <!-- Start Home -->
+            <div id="home"></div>
+            <!-- End Home -->
+
+            <!-- Start Status -->
+            <div id="status">
+                <table class="status">
+                    <col style="width:55%">
+                    <col style="width:45%">
+                    <tr>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+
+                    <tr>
+                        <td valign="top">
+                            <p class="alignleft">
+                                Personnel ID:
+                                <br> Race:
+                                <br> Type:
+                                <br> Age:
+                                <br> Height:
+                                <br> Combat Function:
+                                <br> Hair Color:
+                                <br> Eye Color:
+                                <br>
+                            </p>
+                            <p class="alignright">
+                                ヨルハ2号B型<br>
+                                YoRHa Android<br>
+                                Female Model<br>
+                                <i>ERROR: NULL_VOID</i><br>
+                                168 cm<br>
+                                Close Quarters<br>
+                                White<br>
+                                Blue
+                            </p>
+                        </td>
+                        <td valign="top">
+                            <p class="alignleft">
+                                2B<br>
+                                Funds<br>
+                                EXP:<br>
+                                HP:<br>
+                                Attack (Light):<br>
+                                Attack (Heavy):<br>
+                                Ranged Defense:<br>
+                                Defense:<br>
+                            </p>
+
+                            <p class="alignright">
+                                Lv: 9<br>
+                                24,203 G<br>
+                                1,201<br>
+                                1,320 / 1,320<br>
+                                1,102<br>
+                                830<br>
+                                125<br>
+                                205
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!-- End Status -->
+
+            <!-- Start Intel -->
+            <div id="intel">
+                <!-- Start Intel Buttons -->
+                <div id="intellistbuttons">
+                    <h1>Intel</h1>
+                    <div id="intelbutton">
+                        <a class="intelbuttonclick" href="#inteldatahistory">
+                            <div id="block"></div>
+                            <p class="dalignleft">Data History</p>
+                            <p class="dalignright">16 %</p>
+                        </a>
+                    </div>
+                    <div id="intelbutton">
+                        <a class="intelbuttonclick" href="#inventorydatabase">
+                            <div id="block"></div>
+                            <p class="dalignleft">Inventory Database</p>
+                            <p class="dalignright">43 %</p>
+                        </a>
+                    </div>
+                    <div id="intelbutton">
+                        <div id="block"></div>
+                        <p class="dalignleft">Ally Data</p>
+                        <p class="dalignright">0 %</p>
+                    </div>
+                    <div id="intelbutton">
+                        <a class="typeflag intelbuttonclick" href="#knowledgedatabase">
+                            <div id="block"></div>
+                            <p class="dalignleft">Profile Database</p>
+                            <p class="dalignright">-- %</p>
+                        </a>
+                    </div>
+                    <div id="intelbutton">
+                        <a class="typeflag intelbuttonclick" href="#imagedatabase">
+                            <div id="block"></div>
+                            <p class="dalignleft">Image Database</p>
+                            <p class="dalignright">52 %</p>
+                        </a>
+                    </div>
+                    <div id="intelbutton">
+                        <div id="block"></div>
+                        <p class="dalignleft">Music Index</p>
+                        <p class="dalignright">63 %</p>
+                    </div>
+                </div>
+                <!-- End Intel Buttons -->
+
+                <!-- Start Intel Boxes -->
+                <div id="intelbox">
+                    <div id="inteldatahistory" class="intelboxstyle">
+                        <div id="datahistoryparagraph">
+                            <div id="block1"></div>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque ipsum aliquid, ex accusamus soluta aut veniam repellat laborum recusandae, impedit nobis facere obcaecati unde quod labore similique animi cumque inventore. Lorem ipsum dolor sit amet, consectetur
+                            adipisicing elit. Itaque ipsum aliquid, ex accusamus soluta aut veniam repellat laborum recusandae, impedit nobis facere obcaecati unde quod labore similique animi cumque inventore.
+                        </div>
+                        <div id="datahistoryparagraph">
+                            <div id="block1"></div>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque ipsum aliquid, ex accusamus soluta aut veniam repellat laborum recusandae, impedit nobis facere obcaecati unde quod labore similique animi cumque inventore. Lorem ipsum dolor sit amet, consectetur
+                            adipisicing elit. Itaque ipsum aliquid, ex accusamus soluta aut veniam repellat laborum recusandae, impedit nobis facere obcaecati unde quod labore similique animi cumque inventore.
+                        </div>
+                    </div>
+                    <div id="inventorydatabase" class="intelboxstyle" style="background-color: #d1cdb7">
+                        <!-- Item Copy from here -->
+                        <div id="item">
+                            <div id="itemtext">
+                                <table class="item">
+                                    <tr>
+                                        <th class="itemtitle">項目名</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="itemimage">
+                                            <img class="test" src="https://nierautomata.wiki.fextralife.com/file/Nier-Automata/Quality_Sachet.jpg" alt="">
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td class="itembody" valign="top">
+                                            <hr class="linestyle">これは、商品説明がどこに行くのかです。
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- Item Copy to here -->
+                    </div>
+                    <div id="friendsdata" class="intelboxstyl"></div>
+                    <div id="knowledgedatabase" class="intelboxstyle">
+                        Listed below are links to profile commissions I have done. Enjoy.
+                        <br>
+                        <ul>
+                            <li><a class="highlight" style="color: #454138;" href="https://roleplay.chat/profile.php?user=Harumi" target="_blank">Harumi</a></li>
+                            <li><a class="highlight" style="color: #454138;" href="https://roleplay.chat/profile.php?user=Pink+Haired+Girl" target="_blank">Pink Haired Girl</a></li>
+                            <li><a class="highlight" style="color: #454138;" href="https://roleplay.chat/profile.php?user=Yayoi" target="_blank">Yayoi</a></li>
+                            <li><a class="highlight" style="color: #454138;" href="https://roleplay.chat/profile.php?user=Kirah" target="_blank">Kirah</a></li>
+                            <li><a class="highlight" style="color: #454138;" href="https://roleplay.chat/profile.php?user=Aurelion+Sol" target="_blank">Aurelion Sol</a></li>
+                    </div>
+                    <div id="imagedatabase" class="intelboxstyle">
+                        <pre id="typewriter">
+IMAGE_DATA
+
+ADMINISTRATIVE LOGIN REQUIRED
+
+PASSWORD: *****
+
+PASSWORD INSUFFICIENT TRY AGAIN
+
+PASSWORD: ********
+
+PASSWORD INSUFFICIENT TRY AGAIN
+*NOTICE: FINAL WARNING*
+
+PASSWORD: ***********
+
+LOCKDOWN INITIATED
+
+dl /directory/secure/data/images install_image_data_hack.exe
+
+IMAGE DATABASE BREACH . . .
+
+SECURITY PROTOCOL FAILURE . . .
+
+BACKUP PROTOCOL FAILURE . . .
+
+DATABASE LOADING . . .
+DATABASE LOADING COMPLETE . . .
+
+Q,SRP-}H<a class="highlight" href="" target="_blank">IMAGE_ONE</a>"(W@U>gyRy$q]*"lUzb`(l^H5jb3jpZjuX)XkmBU>`]b
+8Yfe/^;r@B"S#h}42y@PZtWC-P;~I7v\,+>LSGv.,+aR=5)sj]2[}T\z)YH
+sL;(M?p}V9z~sd|3FreY"r ?;W(5^A^+Cp*22xT#|Qm}i<a class="highlight" href="" target="_blank">IMAGE_TWO</a>yW[uaoF0o)-!y
+_d0n\L2+q sMX;vV7Py5;ltsM3qYuG}C3<a class="highlight" href="" target="_blank">IMAGE_THREE</a>k3KU.F;A^>hQqy!iE3Pg3I
+IzaS%@!c1jpQ5Yac~`#9ob+SUcjX>cZ&a&++b#FAN4*VdIVB#Q9
+KkRQ.us'{~s+]h,rm?W?lX]}o-2PTPtDZmJ=j2y3OyVXi~=;]0>V?e?pyE)
+mSa=<a class="highlight" href="h" target="_blank">IMAGE_FOUR</a>)K=]WFEb_Xj{`)N-#fJ>+I/=k!b4{+,j\IOq4Y8E]^BURAG`Sp`(5Bk+KC#%A!!^C}N]S;{`o1{h_>V\%=3m"cCa,vc;{{xAjD;WS<a class="highlight" href="" target="_blank">IMAGE_FIVE</a>${#UMc}1,\%4tI\f>"?zv;3jEA'M.w;*~l;V>nN'[dteXR"C!0f
+sh|9!,x]50,_};`-dE$tbb^G8Bk$^wJ$?eAR874t3^#sr-9TsfstNQL8jEn$Wr
+Em+EWskPqz<a class="highlight" href="" target="_blank">IMAGE_SIX</a>bnVh5fcYHFpejekFD263*&Pgg&7su5ArsNLDFDtT
+y=tFx#P6&3qhc+MLCzeh3+6d^?EFs5RY+9C$X9dtM&FkLL2DvPSM^J
+y^sXUw%vxDYt%+wfs<a class="highlight" href="h" target="_blank">IMAGE_SEVEN</a>!m?RT5gaw@gmx!5kkzfCB_YQ5Jt=XCAgg!6mHz7xmCxZP&RE@49^H!zEU74*%^M
+ </pre>
+                    </div>
+                    <div id="musicindex" class="intelboxstyl"></div>
+                </div>
+                <!-- End Intel Boxes -->
+            </div>
+            <!-- End Intel -->
+
+            <!-- Start System -->
+            <div id="system">
+                <table class="systemtable">
+                    <col style="width:100%">
+                    <tr>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+
+                    <tr>
+                        <td valign="top">
+                            <p class="alignleft">
+                                Credits:
+                                <br>
+                                <br> Code:
+                                <br>
+                                <br> Commissions:
+                                <br>
+                                <br> Rights:
+                                <br>
+                            </p>
+                            <p class="alignright">
+                                Picture(s) are not by me, credit to respective artists.<br>
+                                <br>
+                                WIP. By Me. Don't not take any part without permission.<br>
+                                <br>
+                                I may make profiles for you, mail or PM me.<br>
+                                <br>
+                                I have all rights to ignore you if I find it necessary.<br>
+                                Put some effort into your profile for senpai to notice you.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!-- End System -->
+        </div>
+        <!-- End Boxholders -->
+    </div>
+    <!-- End Wrapper -->
+</body>
+
+</html>
